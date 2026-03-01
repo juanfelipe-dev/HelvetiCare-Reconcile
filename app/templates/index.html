@@ -8,14 +8,20 @@
 <body>
 <h1>Service Reconciliation</h1>
 <form id="reconcile-form">
-    <div>
-        <label>Plan file: <input type="file" name="plan_file" required></label>
+    <div class="dropzone" data-name="plan_file">
+        <i>📁</i>
+        <span class="drop-text">Click or drop plan file here</span>
+        <input type="file" name="plan_file" required>
     </div>
-    <div>
-        <label>Actual file: <input type="file" name="actual_file" required></label>
+    <div class="dropzone" data-name="actual_file">
+        <i>📁</i>
+        <span class="drop-text">Click or drop actual file here</span>
+        <input type="file" name="actual_file" required>
     </div>
-    <div>
-        <label>Prescription file: <input type="file" name="prescription_file" required></label>
+    <div class="dropzone" data-name="prescription_file">
+        <i>📁</i>
+        <span class="drop-text">Click or drop prescription file here</span>
+        <input type="file" name="prescription_file" required>
     </div>
     <div>
         <label><input type="checkbox" name="download" id="download"> Download Excel report</label>
@@ -27,6 +33,33 @@
 <script>
 const form = document.getElementById('reconcile-form');
 const resultContainer = document.getElementById('result-container');
+
+// initialize dropzones
+function setupDropzones() {
+    document.querySelectorAll('.dropzone').forEach(zone => {
+        const input = zone.querySelector('input[type=file]');
+        const text = zone.querySelector('.drop-text');
+        zone.addEventListener('click', () => input.click());
+        zone.addEventListener('dragover', e => {
+            e.preventDefault();
+            zone.classList.add('dragover');
+        });
+        zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+        zone.addEventListener('drop', e => {
+            e.preventDefault();
+            zone.classList.remove('dragover');
+            if (e.dataTransfer.files.length) {
+                input.files = e.dataTransfer.files;
+                text.textContent = input.files[0].name;
+            }
+        });
+        input.addEventListener('change', () => {
+            if (input.files.length) text.textContent = input.files[0].name;
+        });
+    });
+}
+
+setupDropzones();
 
 function renderTable(title, data) {
     if (!Array.isArray(data) || data.length === 0) return '';

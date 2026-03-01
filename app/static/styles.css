@@ -111,16 +111,37 @@ footer {
 
 /* dropzone style added */
 .dropzone {
-    border: 2px dashed #aaa;
-    border-radius: 12px;
-    padding: 2rem;
+    background: #f9f9fb;
+    border: 2px dashed #6a11cb;
+    border-radius: 16px;
+    padding: 2.5rem 1rem;
     text-align: center;
     cursor: pointer;
     transition: background 0.2s ease, border-color 0.2s ease;
-    color: #555;
+    color: #333;
     margin-bottom: 1rem;
+    position: relative;
+}
+.dropzone input[type=file] {
+    display: none;
 }
 
+.dropzone.dragover {
+    background: #eef;
+    border-color: #2575fc;
+}
+
+.dropzone i {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.dropzone .drop-text {
+    font-size: 1rem;
+    color: #2575fc;
+    font-weight: 600;
+}
 .dropzone:hover {
     background: #f9f9f9;
     border-color: #888;
