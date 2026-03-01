@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomeCare Reconciliation</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<h1>Service Reconciliation</h1>
+<form id="reconcile-form">
+    <div>
+        <label>Plan file: <input type="file" name="plan_file" required></label>
+    </div>
+    <div>
+        <label>Actual file: <input type="file" name="actual_file" required></label>
+    </div>
+    <div>
+        <label>Prescription file: <input type="file" name="prescription_file" required></label>
+    </div>
+    <div>
+        <label><input type="checkbox" name="download" id="download"> Download Excel report</label>
+    </div>
+    <button type="submit">Reconcile</button>
+</form>
+<pre id="output"></pre>
+
+<script>
+const form = document.getElementById('reconcile-form');
+const output = document.getElementById('output');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    output.textContent = 'Processing...';
+    const data = new FormData(form);
+    const useDownload = document.getElementById('download').checked;
+    // download flag is passed as a query parameter, not inside form data
+    let url = '/reconcile';
+    if (useDownload) {
+        url += '?download=true';
+    }
+    const resp = await fetch(url, { method: 'POST', body: data });
+    if (useDownload) {
+        const blob = await resp.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'report.xlsx';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        output.textContent = 'Download started.';
+    } else {
+        const json = await resp.json();
+        output.textContent = JSON.stringify(json, null, 2);
+    }
+});
+</script>
+<footer>
+    &copy; 2026 HomeCare Reconciliation Tool
+</footer>
+</body>
+</html>
