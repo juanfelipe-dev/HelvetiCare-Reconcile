@@ -100,12 +100,11 @@ button:disabled {
 
 footer {
     text-align: center;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #7f8c8d;
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
+    margin: 3rem auto 1rem;
+    font-size: 0.85rem;
+    color: #95a5a6;
+    position: relative; /* let it flow after content to avoid overlap */
+    width: auto;
 }
 
 /* dropzone style added */
@@ -160,13 +159,17 @@ footer {
 /* results card and table styling */
 .result-card {
     background: #ffffff;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 2rem 2.5rem; /* extra bottom padding so content doesn't butt against footer */
     border-radius: 16px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     margin-top: 2rem;
     width: 90%;
     max-width: 800px;
     color: #333;
+    transition: transform 0.3s ease;
+}
+.result-card:hover {
+    transform: translateY(-2px);
 }
 
 .result-card h2 {
