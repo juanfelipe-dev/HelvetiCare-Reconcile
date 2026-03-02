@@ -23,14 +23,13 @@ h1 {
 
 form {
     background: #ffffff;
-    padding: 2rem 2.5rem;
+    padding: 1.5rem 2rem;
     border-radius: 20px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.2);
     width: 100%;
     max-width: 480px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    /* center the card and add top margin so header sits above */
     margin-top: 1rem;
 }
 form:hover {
@@ -114,12 +113,12 @@ footer {
     background: #f9f9fb;
     border: 2px dashed #6a11cb;
     border-radius: 16px;
-    padding: 2.5rem 1rem;
+    padding: 1.5rem 1rem;
     text-align: center;
     cursor: pointer;
     transition: background 0.2s ease, border-color 0.2s ease;
     color: #333;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     position: relative;
 }
 .dropzone input[type=file] {
@@ -133,12 +132,12 @@ footer {
 
 .dropzone i {
     display: block;
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
 }
 
 .dropzone .drop-text {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #2575fc;
     font-weight: 600;
 }
@@ -158,20 +157,50 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-/* results table styling */
+/* results card and table styling */
+.result-card {
+    background: #ffffff;
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin-top: 2rem;
+    width: 90%;
+    max-width: 800px;
+    color: #333;
+}
+
+.result-card h2 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.result-card ul {
+    padding-left: 1.2rem;
+}
+
+.result-card ul li {
+    margin: 0.3rem 0;
+}
+
 .result-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
+    font-size: 0.9rem;
 }
 .result-table th,
 .result-table td {
-    border: 1px solid #ddd;
-    padding: 0.5rem;
+    border: 1px solid #ccc;
+    padding: 0.6rem;
     text-align: left;
 }
 .result-table th {
-    background: #f2f2f2;
+    background: #e8eaf6;
+    color: #333;
+    text-transform: capitalize;
+}
+.result-table tbody tr:nth-child(even) {
+    background: #f9f9fb;
 }
 
 /* responsive tweaks */
@@ -181,5 +210,14 @@ footer {
     }
     h1 {
         font-size: 1.5rem;
+    }
+}
+/* additional responsive tweaks for results */
+@media (max-width: 600px) {
+    .result-card {
+        padding: 1rem;
+    }
+    .result-table {
+        font-size: 0.8rem;
     }
 }
