@@ -17,11 +17,11 @@ body {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: center; /* panes will fill entire row and be centered if extra space */
     gap: 2rem;
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 1rem;
+    width: 100vw;         /* span whole viewport width */
+    max-width: none;      /* don't constrain to 1200px */
+    padding: 0;           /* avoid side padding that shifts panes */
 }
 
 /* left/right split: 2/5 and 3/5 proportions */
