@@ -24,6 +24,25 @@ body {
     padding: 0;           /* avoid side padding that shifts panes */
 }
 
+/* instructions panel above the form */
+.instructions {
+    background: rgba(255,255,255,0.85);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    max-width: 480px;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.instructions ol {
+    padding-left: 1.2rem;
+    margin: 0;
+}
+.instructions li {
+    margin: 0.5rem 0;
+}
+
 /* left/right split: 2/5 and 3/5 proportions */
 .left-pane {
     /* use absolute basis to guarantee exact 40% of viewport width */
