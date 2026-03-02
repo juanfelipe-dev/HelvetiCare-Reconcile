@@ -13,6 +13,24 @@ body {
     padding-top: 3rem; /* give space at top for header */
 }
 
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+@media (max-width: 800px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 h1 {
     color: #2c3e50;
     text-align: center;

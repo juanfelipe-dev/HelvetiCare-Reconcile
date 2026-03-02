@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
+<div class="content-wrapper">
 <form id="reconcile-form">
     <h1>Service Reconciliation</h1>
     <div class="dropzone" data-name="plan_file">
@@ -29,6 +30,7 @@
     <button type="submit">Reconcile</button>
     </form>
     <div id="result-container" class="result-card"></div>
+</div>
 
 <script>
 const form = document.getElementById('reconcile-form');
