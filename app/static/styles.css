@@ -24,6 +24,20 @@ body {
     padding: 0 1rem;
 }
 
+/* left/right split: 2/5 and 3/5 proportions */
+.left-pane {
+    flex: 2;
+    display: flex;
+    justify-content: center; /* center form horizontally within its pane */
+    align-items: center; /* vertical centering if pane gets taller */
+    min-height: 60vh; /* give some vertical space so centering is visible */
+}
+.right-pane {
+    flex: 3;
+    display: flex;
+    justify-content: center; /* center results area */
+}
+
 @media (max-width: 800px) {
     .content-wrapper {
         flex-direction: column;
@@ -181,7 +195,7 @@ footer {
     border-radius: 16px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     margin-top: 2rem;
-    width: 90%;
+    width: 100%; /* let pane control width */
     max-width: 800px;
     color: #333;
     transition: transform 0.3s ease;

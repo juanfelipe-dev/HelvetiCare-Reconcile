@@ -7,29 +7,33 @@
 </head>
 <body>
 <div class="content-wrapper">
-<form id="reconcile-form">
-    <h1>Service Reconciliation</h1>
-    <div class="dropzone" data-name="plan_file">
-        <i>📁</i>
-        <span class="drop-text">Click or drop plan file here</span>
-        <input type="file" name="plan_file" required>
+    <div class="left-pane">
+        <form id="reconcile-form">
+            <h1>Service Reconciliation</h1>
+            <div class="dropzone" data-name="plan_file">
+                <i>📁</i>
+                <span class="drop-text">Click or drop plan file here</span>
+                <input type="file" name="plan_file" required>
+            </div>
+            <div class="dropzone" data-name="actual_file">
+                <i>📁</i>
+                <span class="drop-text">Click or drop actual file here</span>
+                <input type="file" name="actual_file" required>
+            </div>
+            <div class="dropzone" data-name="prescription_file">
+                <i>📁</i>
+                <span class="drop-text">Click or drop prescription file here</span>
+                <input type="file" name="prescription_file" required>
+            </div>
+            <div>
+                <label><input type="checkbox" name="download" id="download"> Download Excel report</label>
+            </div>
+            <button type="submit">Reconcile</button>
+        </form>
     </div>
-    <div class="dropzone" data-name="actual_file">
-        <i>📁</i>
-        <span class="drop-text">Click or drop actual file here</span>
-        <input type="file" name="actual_file" required>
+    <div class="right-pane">
+        <div id="result-container" class="result-card"></div>
     </div>
-    <div class="dropzone" data-name="prescription_file">
-        <i>📁</i>
-        <span class="drop-text">Click or drop prescription file here</span>
-        <input type="file" name="prescription_file" required>
-    </div>
-    <div>
-        <label><input type="checkbox" name="download" id="download"> Download Excel report</label>
-    </div>
-    <button type="submit">Reconcile</button>
-    </form>
-    <div id="result-container" class="result-card"></div>
 </div>
 
 <script>
