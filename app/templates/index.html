@@ -32,13 +32,18 @@
                 <span class="drop-text">Click or drop prescription file here</span>
                 <input type="file" name="prescription_file" required>
             </div>
+            <!-- arrow graphic showing flow from three files to results -->
+            <div class="process-arrow" aria-hidden="true">
+                <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                    <path d="M0 30 L90 30 L90 15 L120 30 L90 45 L90 30 L0 30 Z" fill="#ffffff" />
+                </svg>
+            </div>
             <div>
                 <label><input type="checkbox" name="download" id="download"> Download Excel report</label>
             </div>
             <button type="submit">Reconcile</button>
         </form>
     </div>
-    <div class="connector"></div>
     <div class="right-pane">
         <div id="result-container" class="result-card"></div>
     </div>

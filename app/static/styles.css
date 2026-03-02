@@ -43,6 +43,18 @@ body {
     margin: 0.5rem 0;
 }
 
+/* simple white arrow graphic to suggest data flow */
+.process-arrow {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+.process-arrow svg {
+    width: 120px;
+    height: auto;
+    opacity: 0.8;
+}
+
 /* left/right split: 2/5 and 3/5 proportions */
 .left-pane {
     /* use absolute basis to guarantee exact 40% of viewport width */
@@ -59,27 +71,6 @@ body {
     justify-content: center; /* horizontal centering */
     align-items: center;     /* vertical centering */
     height: 100vh;           /* fill full viewport height for vertical centering */
-}
-
-/* decorative arrow between left and right panes */
-.connector {
-    position: absolute;
-    top: 50%;
-    left: 40vw;                /* start at right edge of left pane */
-    width: 20vw;               /* span across boundary to mid of right pane */
-    height: 0;
-    border-top: 2px solid rgba(255,255,255,0.8);
-}
-.connector::after {
-    content: "";
-    position: absolute;
-    right: -8px;               /* place arrowhead at line end */
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-    width: 8px;
-    height: 8px;
-    border-right: 2px solid rgba(255,255,255,0.8);
-    border-bottom: 2px solid rgba(255,255,255,0.8);
 }
 
 @media (max-width: 800px) {
