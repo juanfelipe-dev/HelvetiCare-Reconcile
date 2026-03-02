@@ -61,6 +61,27 @@ body {
     height: 100vh;           /* fill full viewport height for vertical centering */
 }
 
+/* decorative arrow between left and right panes */
+.connector {
+    position: absolute;
+    top: 50%;
+    left: 40vw;                /* start at right edge of left pane */
+    width: 20vw;               /* span across boundary to mid of right pane */
+    height: 0;
+    border-top: 2px solid rgba(255,255,255,0.8);
+}
+.connector::after {
+    content: "";
+    position: absolute;
+    right: -8px;               /* place arrowhead at line end */
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid rgba(255,255,255,0.8);
+    border-bottom: 2px solid rgba(255,255,255,0.8);
+}
+
 @media (max-width: 800px) {
     .content-wrapper {
         flex-direction: column;
