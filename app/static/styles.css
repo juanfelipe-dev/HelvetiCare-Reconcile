@@ -17,8 +17,8 @@ body {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center; /* panes will fill entire row and be centered if extra space */
-    gap: 2rem;
+    justify-content: flex-start; /* start at left edge since panes are fixed width */
+    gap: 0; /* gap would break exact proportions, remove it */
     width: 100vw;         /* span whole viewport width */
     max-width: none;      /* don't constrain to 1200px */
     padding: 0;           /* avoid side padding that shifts panes */
@@ -26,16 +26,20 @@ body {
 
 /* left/right split: 2/5 and 3/5 proportions */
 .left-pane {
-    flex: 2;
+    /* use absolute basis to guarantee exact 40% of viewport width */
+    flex: 0 0 40vw;
     display: flex;
     justify-content: center; /* center form horizontally within its pane */
     align-items: center; /* vertical centering relative to viewport */
     height: 100vh; /* fill full screen height so centering uses entire viewport */
 }
 .right-pane {
-    flex: 3;
+    /* use absolute basis to guarantee exact 60% of viewport width */
+    flex: 0 0 60vw;
     display: flex;
-    justify-content: center; /* center results area */
+    justify-content: center; /* horizontal centering */
+    align-items: center;     /* vertical centering */
+    height: 100vh;           /* fill full viewport height for vertical centering */
 }
 
 @media (max-width: 800px) {
