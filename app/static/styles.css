@@ -29,8 +29,8 @@ body {
     flex: 2;
     display: flex;
     justify-content: center; /* center form horizontally within its pane */
-    align-items: center; /* vertical centering if pane gets taller */
-    min-height: 60vh; /* give some vertical space so centering is visible */
+    align-items: center; /* vertical centering relative to viewport */
+    height: 100vh; /* fill full screen height so centering uses entire viewport */
 }
 .right-pane {
     flex: 3;
@@ -62,7 +62,7 @@ form {
     max-width: 480px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    margin-top: 1rem;
+    margin-top: 0; /* avoid pushing form down in left pane */
 }
 form:hover {
     transform: translateY(-5px);
