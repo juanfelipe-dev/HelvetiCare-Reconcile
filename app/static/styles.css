@@ -11,6 +11,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding-top: 3rem; /* give space at top for header */
+    overflow-x: hidden; /* prevent horizontal scrollbar from 100vw elements */
 }
 
 .content-wrapper {
@@ -57,20 +58,20 @@ body {
 
 /* left/right split: 2/5 and 3/5 proportions */
 .left-pane {
-    /* use absolute basis to guarantee exact 40% of viewport width */
-    flex: 0 0 40vw;
+    /* use percentage basis to avoid scrollbar from vw */
+    flex: 0 0 40%;
     display: flex;
     justify-content: center; /* center form horizontally within its pane */
     align-items: center; /* vertical centering relative to viewport */
-    height: 100vh; /* fill full screen height so centering uses entire viewport */
+    height: calc(100vh - 3rem); /* subtract body top padding to prevent vertical scrollbar */
 }
 .right-pane {
-    /* use absolute basis to guarantee exact 60% of viewport width */
-    flex: 0 0 60vw;
+    /* use percentage basis to avoid scrollbar from vw */
+    flex: 0 0 60%;
     display: flex;
     justify-content: center; /* horizontal centering */
     align-items: center;     /* vertical centering */
-    height: 100vh;           /* fill full viewport height for vertical centering */
+    height: calc(100vh - 3rem);           /* fill full viewport height minus body padding */
 }
 
 @media (max-width: 800px) {
